@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<metadata>
+	<!-- void is gpointer here -->
+	<attr path="/api/namespace/object[@cname='CoglGstVideoSink']/class_struct/field[@cname='_padding_dummy']" name="type">gpointer</attr>
+	<attr path="/api/namespace[@name='CoglGst']" name="library">cogl-gst</attr>
+</metadata>
