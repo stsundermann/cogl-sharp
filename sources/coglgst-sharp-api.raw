@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api parser_version="3">
+  <namespace name="CoglGst" library="cogl">
+    <object name="VideoSink" cname="CoglGstVideoSink" opaque="false" hidden="false" parent="GstBaseSink">
+      <class_struct cname="CoglGstVideoSinkClass">
+        <field cname="parent_class" access="private" writeable="false" readable="false" name="ParentClass" type="GstBaseSink">
+          <warning>missing glib:type-name</warning>
+        </field>
+        <method signal_vm="new_frame"/>
+        <method signal_vm="pipeline_ready"/>
+        <field cname="_padding_dummy" access="private" writeable="false" readable="false" name="_paddingPaddingDummy" type="gpointer" array="true" array_len="8"/>
+      </class_struct>
+      <method name="GetType" cname="cogl_gst_video_sink_get_type" shared="true">
+        <return-type type="GType"/>
+      </method>
+      <constructor cname="cogl_gst_video_sink_new">
+        <parameters>
+          <parameter name="ctx" type="CoglContext*"/>
+        </parameters>
+      </constructor>
+      <method name="AttachFrame" cname="cogl_gst_video_sink_attach_frame">
+        <return-type type="void"/>
+        <parameters>
+          <parameter name="pln" type="CoglPipeline*"/>
+        </parameters>
+      </method>
+      <method name="FitSize" cname="cogl_gst_video_sink_fit_size">
+        <return-type type="void"/>
+        <parameters>
+          <parameter name="available" type="CoglGstRectangle*">
+            <warning>missing glib:type-name</warning>
+          </parameter>
+          <parameter name="output" type="CoglGstRectangle*" owned="true" pass_as="ref">
+            <warning>missing glib:type-name</warning>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="GetAspect" cname="cogl_gst_video_sink_get_aspect">
+        <return-type type="gfloat"/>
+        <parameters/>
+      </method>
+      <method name="GetFreeLayer" cname="cogl_gst_video_sink_get_free_layer">
+        <return-type type="gint"/>
+        <parameters/>
+      </method>
+      <method name="GetHeightForWidth" cname="cogl_gst_video_sink_get_height_for_width">
+        <return-type type="gfloat"/>
+        <parameters>
+          <parameter name="width" type="gfloat"/>
+        </parameters>
+      </method>
+      <method name="GetNaturalHeight" cname="cogl_gst_video_sink_get_natural_height">
+        <return-type type="gfloat"/>
+        <parameters/>
+      </method>
+      <method name="GetNaturalSize" cname="cogl_gst_video_sink_get_natural_size">
+        <return-type type="void"/>
+        <parameters>
+          <parameter name="width" type="gfloat*" owned="true" pass_as="out"/>
+          <parameter name="height" type="gfloat*" owned="true" pass_as="out"/>
+        </parameters>
+      </method>
+      <method name="GetNaturalWidth" cname="cogl_gst_video_sink_get_natural_width">
+        <return-type type="gfloat"/>
+        <parameters/>
+      </method>
+      <method name="GetPipeline" cname="cogl_gst_video_sink_get_pipeline">
+        <return-type type="CoglPipeline*"/>
+        <parameters/>
+      </method>
+      <method name="GetWidthForHeight" cname="cogl_gst_video_sink_get_width_for_height">
+        <return-type type="gfloat"/>
+        <parameters>
+          <parameter name="height" type="gfloat"/>
+        </parameters>
+      </method>
+      <method name="IsReady" cname="cogl_gst_video_sink_is_ready">
+        <return-type type="int"/>
+        <parameters/>
+      </method>
+      <method name="SetContext" cname="cogl_gst_video_sink_set_context">
+        <return-type type="void"/>
+        <parameters>
+          <parameter name="ctx" type="CoglContext*"/>
+        </parameters>
+      </method>
+      <method name="SetDefaultSample" cname="cogl_gst_video_sink_set_default_sample">
+        <return-type type="void"/>
+        <parameters>
+          <parameter name="default_sample" type="int"/>
+        </parameters>
+      </method>
+      <method name="SetFirstLayer" cname="cogl_gst_video_sink_set_first_layer">
+        <return-type type="void"/>
+        <parameters>
+          <parameter name="first_layer" type="gint"/>
+        </parameters>
+      </method>
+      <method name="SetupPipeline" cname="cogl_gst_video_sink_setup_pipeline">
+        <return-type type="void"/>
+        <parameters>
+          <parameter name="pipeline" type="CoglPipeline*"/>
+        </parameters>
+      </method>
+      <property name="UpdatePriority" cname="update-priority" type="gint" readable="true" writeable="true" construct="false" construct-only="false"/>
+      <field cname="parent" access="private" writeable="false" readable="false" name="Parent" type="GstBaseSink*"/>
+      <field cname="priv" access="private" writeable="false" readable="false" name="Priv" type="CoglGstVideoSinkPrivate*">
+        <warning>missing glib:type-name</warning>
+      </field>
+      <signal name="NewFrame" cname="new-frame" when="last" field_name="new_frame">
+        <return-type type="void"/>
+        <parameters/>
+      </signal>
+      <signal name="PipelineReady" cname="pipeline-ready" when="last" field_name="pipeline_ready">
+        <return-type type="void"/>
+        <parameters/>
+      </signal>
+    </object>
+    <boxed name="Rectangle" cname="CoglGstRectangle" opaque="false" hidden="false">
+      <method name="GetType" cname="cogl_gst_rectangle_get_gtype" shared="true">
+        <return-type type="GType"/>
+      </method>
+      <field cname="x" access="public" writeable="true" readable="true" name="X" type="gfloat"/>
+      <field cname="y" access="public" writeable="true" readable="true" name="Y" type="gfloat"/>
+      <field cname="width" access="public" writeable="true" readable="true" name="Width" type="gfloat"/>
+      <field cname="height" access="public" writeable="true" readable="true" name="Height" type="gfloat"/>
+    </boxed>
+    <struct name="VideoSinkPrivate" cname="CoglGstVideoSinkPrivate" opaque="true" hidden="true"/>
+    <object name="Global" cname="CoglGstGlobal" opaque="true"/>
+    <object name="Constants" cname="CoglGstConstants" opaque="true"/>
+  </namespace>
+</api>

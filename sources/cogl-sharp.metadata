@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<metadata>
+	<attr path="api/namespace/enum[@cname='CoglTextureType']/member[@cname='COGL_TEXTURE_TYPE_2D']"
+		name="name">_2d</attr>
+	<attr path="api/namespace/enum[@cname='CoglTextureType']/member[@cname='COGL_TEXTURE_TYPE_3D']"
+		name="name">_3d</attr>
+	<!-- These are structs which are used to assert a right structure, not really useful in a binding -->
+	<attr path="/api/namespace/struct[contains(@cname, 'Check')]" name="hidden">true</attr>
+	<!-- The global class contains all methods from the general API, so rename it -->
+	<attr path="/api/namespace[1]/object[@name='Global']" name="name">General</attr>
+	<!-- Name clashes -->
+	<attr path="/api/namespace/object[@name='General']/method[@cname='cogl_viewport']" name="name"
+		>SetupViewport</attr>
+	<!-- xlib has no introspection yet -->
+	<attr path="/api/namespace/callback[@cname='CoglXlibFilterFunc']" name="hidden">true</attr>
+	<!-- Remove const -->
+	<attr
+		path="/api/namespace/struct[@cname='CoglMaterial']/method[@cname='cogl_material_get_layers']/return-type"
+		name="c:type">GList*</attr>
+	<!-- Introspection fails -->
+	<attr
+		path="/api/namespace/enum[@cname='CoglBufferMapHint']/member[@cname='COGL_BUFFER_MAP_HINT_DISCARD']"
+		name="name">Discard</attr>
+	<attr
+		path="/api/namespace/enum[@cname='CoglBufferMapHint']/member[@cname='COGL_BUFFER_MAP_HINT_DISCARD']"
+		name="name">DiscardRange</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_onscreen_add_dirty_callback']/parameters/parameter[@name='destroy']"
+		name="destroy">2</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_onscreen_add_resize_callback']/parameters/parameter[@name='destroy']"
+		name="destroy">2</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_onscreen_add_frame_callback']/parameters/parameter[@name='destroy']"
+		name="destroy">2</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_onscreen_add_dirty_callback']/parameters/parameter[@name='destroy']"
+		name="allow-none">0</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_onscreen_add_resize_callback']/parameters/parameter[@name='destroy']"
+		name="allow-none">0</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_onscreen_add_frame_callback']/parameters/parameter[@name='destroy']"
+		name="allow-none">0</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_onscreen_add_swap_buffers_callback']/parameters/parameter[@name='callback']"
+		name="scope">call</attr>
+	<attr path="/api/namespace/struct/method[@cname='cogl_indices_get_type']" name="name"
+		>Type</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_framebuffer_add_fence_callback']/parameters/parameter[@name='callback']"
+		name="scope">call</attr>
+	<attr
+		path="/api/namespace/struct/method[@cname='cogl_pipeline_set_uniform_float']/parameters/parameter[@name='value']"
+		name="array">true</attr>
+	<attr
+		path="//namespace[@name='CoglPango']/object[@name='Global']//method//*[@type='PangoCairoFontMap']"
+		name="type">PangoFontMap</attr>
+	<!-- disable varargs methods -->
+	<attr path="//method[parameters//parameter[@name='...']]" name="hidden">true</attr>
+	<attr path="//constructor[parameters//parameter[@name='...']]" name="hidden">true</attr>
+	<!-- These are no real interfaces -->
+	<change-node-type path="/api/namespace/interface[@cname='CoglFramebuffer']"
+		>struct</change-node-type>
+	<change-node-type path="/api/namespace/interface[@cname='CoglTexture']"
+		>struct</change-node-type>
+	<attr path="/api/namespace/struct[@cname='CoglFramebuffer']" name="opaque">true</attr>
+	<attr path="/api/namespace/struct[@cname='CoglTexture']" name="opaque">true</attr>
+	<attr path="/api/namespace/struct[@cname='CoglFramebuffer']" name="parent">CoglObject</attr>
+	<attr path="/api/namespace/struct[@cname='CoglTexture']" name="parent">CoglObject</attr>
+	<attr path="/api/namespace/struct[@cname='CoglTexture2D']" name="parent">CoglTexture</attr>
+	<attr path="/api/namespace/struct[@cname='CoglTexture3D']" name="parent">CoglTexture</attr>
+	<attr path="/api/namespace/struct[@cname='CoglTexture2DSliced']" name="parent"
+		>CoglTexture</attr>
+	<attr path="/api/namespace/struct[@cname='CoglTextureRectangle']" name="parent"
+		>CoglTexture</attr>
+	<attr path="/api/namespace/struct[@cname='CoglOnscreen']" name="parent">CoglFramebuffer</attr>
+	<remove-node path="/api/namespace/struct[@cname='CoglOnscreen']/implements"/>
+	<remove-node path="/api/namespace/struct[@cname='CoglTexture2D']/implements"/>
+	<remove-node path="/api/namespace/struct[@cname='CoglTexture3D']/implements"/>
+	<remove-node path="/api/namespace/struct[@cname='CoglTexture2DSliced']/implements"/>
+	<remove-node path="/api/namespace/struct[@cname='CoglTextureRectangle']/implements"/>
+	<!-- Move 2.0 methods into 1.0 namespace -->
+	<move-node path="/api/namespace[2]/*">/api/namespace[@name='Cogl']</move-node>
+	<!-- Material and Offscreen are a subclass of Object -->
+	<attr path="/api/namespace/struct[@cname='CoglMaterial']" name="parent">CoglObject</attr>
+	<attr path="/api/namespace/struct/method[@cname='cogl_material_unref']" name="hidden"
+		>true</attr>
+	<attr path="/api/namespace/struct[@cname='CoglOffscreen']" name="parent">CoglObject</attr>
+	<attr path="/api/namespace/struct/method[@cname='cogl_offscreen_unref']" name="hidden"
+		>true</attr>
+	<attr path="/api/namespace/struct/method[@cname='cogl_offscreen_ref']" name="hidden">true</attr>
+	<!-- Disable some not introspectable methods -->
+	<attr path="//method[@cname='cogl_object_ref']" name="hidden">true</attr>
+	<attr path="//method[@cname='cogl_object_unref']" name="hidden">true</attr>
+	<attr path="//method[@name='ValueGetObject']" name="hidden">true</attr>
+	<attr path="//method[@name='ValueSetObject']" name="hidden">true</attr>
+	<!-- These should be arrays -->
+	<attr path="//method[@cname='cogl_buffer_set_data']/parameters/parameter[@name='data']"
+		name="array">true</attr>
+	<attr path="//method[@cname='cogl_buffer_set_data']/parameters/parameter[@name='data']"
+		name="type">guint8*</attr>
+	<attr path="//method[@cname='cogl_buffer_set_data']/parameters/parameter[@name='size']"
+		name="name">n_size</attr>
+	<attr
+		path="//constructor[@cname='cogl_texture_2d_new_from_data']/parameters/parameter[@name='data']"
+		name="array">true</attr>
+	<attr
+		path="//constructor[@cname='cogl_primitive_new_with_attributes']/parameters/parameter[@name='attributes']"
+		name="array">true</attr>
+	<attr
+		path="//constructor[@cname='cogl_primitive_new_with_attributes']/parameters/parameter[@name='n_vertices']"
+		name="name">vertices</attr>
+
+	<!-- Rename namespaces -->
+	<attr path="//namespace[@name='CoglPango']" name="library">cogl-pango</attr>
+	<attr path="//namespace[@name='CoglPango']" name="name">Cogl.GtkPango</attr>
+	<!-- Remove Xlib stuff -->
+	<attr path="//method[starts-with(@name, 'Xlib')]" name="hidden">true</attr>
+	<attr path="//method[starts-with(@name, 'X11')]" name="hidden">true</attr>
+
+	<!-- Fix deprecated Fixed API -->
+	<attr path="//struct[@cname='CoglFixed']//method//*[@type='*']" name="type">CoglFixed</attr>
+	<attr path="//object[@name='General']//method//*[@type='*']" name="type">CoglFixed</attr>
+	<attr path="//object[@name='General']//method//*[@type='int32_t']" name="type">gint</attr>
+</metadata>
