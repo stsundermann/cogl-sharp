@@ -188,6 +188,7 @@ AC_CONFIG_FILES([
 	sources/AssemblyInfo.cs
 	cogl-sharp-1.0.pc
 	doc/Makefile
+    samples/Makefile
 ])
 AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
 AC_OUTPUT
