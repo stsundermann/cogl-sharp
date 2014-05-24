@@ -9,7 +9,7 @@ LT_INIT
 
 dnl Package settings
 ASSEMBLY_COMPANY=""
-ASSEMBLY_COPYRIGHT="2012 Andreia Gaita"
+ASSEMBLY_COPYRIGHT="2014 Stephan Sundermann"
 ASSEMBLY_DESCRIPTION="cogl bindings for Mono"
 ASSEMBLY_NAME="cogl-sharp"
 ASSEMBLY_NAMESPACE="Cogl"
