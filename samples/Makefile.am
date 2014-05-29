@@ -1,6 +1,7 @@
 SUBDIRS = 
 
-TARGETS = cogl-hello-world.exe
+TARGETS = cogl-hello-world.exe \
+    crate.exe
 
 if COGLGSTREAMER
    TARGETS += basic-video-player.exe
@@ -21,6 +22,11 @@ cogl-hello-world.exe: $(srcdir)/HelloWorld.cs $(assemblies)
 basic-video-player.exe: $(srcdir)/HelloWorld.cs $(assemblies)
 	$(CSC) $(CSFLAGS) -out:basic-video-player.exe $(references) $(GTK_SHARP_LIBS) $(GSTREAMERSHARP_LIBS) $(srcdir)/BasicVideoPlayer.cs
 
+crate.exe: $(srcdir)/Crate.cs $(assemblies)
+	$(CSC) $(CSFLAGS) -out:crate.exe $(references) $(GTK_SHARP_LIBS) $(srcdir)/Crate.cs
+
 EXTRA_DIST = 				\
 	HelloWorld.cs \
-    BasicVideoPlayer.cs
+    BasicVideoPlayer.cs \
+    Crate.cs \
+    crate.jpg
