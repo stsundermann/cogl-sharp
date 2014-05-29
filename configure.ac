@@ -168,6 +168,7 @@ dnl Check for gstreamer-sharp
 	AC_SUBST(GSTREAMERSHARP_LIBS)
 	AC_SUBST(GSTREAMERSHARP_CFLAGS)]
 )
+AM_CONDITIONAL(COGLGSTREAMER, test "x$enable_cogl_gst" = "xyes")
 
 dnl Check for Pango
 PKG_CHECK_MODULES(PANGO, pango)
