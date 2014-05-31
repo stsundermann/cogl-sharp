@@ -141,7 +141,7 @@ AC_SUBST(cogl_prefix)
 AC_SUBST(COGL_LIBS)
 AC_SUBST(COGL_CFLAGS)
 
-PKG_CHECK_EXISTS([cogl-gst], [ALLOW_COGL_GST=yes])
+PKG_CHECK_EXISTS([cogl-gst-1.0], [ALLOW_COGL_GST=yes])
 
 AC_ARG_ENABLE(
   [cogl-gst],
@@ -151,7 +151,7 @@ AC_ARG_ENABLE(
 )	
 AS_IF([test "x$ALLOW_COGL_GST" = "xyes"],
 dnl Check for Cogl-Gst
-	[PKG_CHECK_MODULES(COGLGST, cogl-gst)
+	[PKG_CHECK_MODULES(COGLGST, cogl-gst-1.0)
 	coglgst_prefix=/usr
 	coglgst_api_raw=coglgst-sharp-api.raw
 	coglgst_api=coglgst-sharp-api.xml
