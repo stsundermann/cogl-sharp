@@ -1,4 +1,4 @@
-SUBDIRS = 
+SUBDIRS = effectPlayer
 
 TARGETS = cogl-hello-world.exe \
     crate.exe

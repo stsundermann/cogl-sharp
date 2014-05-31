@@ -192,6 +192,7 @@ AC_CONFIG_FILES([
 	cogl-sharp-1.0.pc
 	doc/Makefile
     samples/Makefile
+    samples/effectPlayer/Makefile
 ])
 AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
 AC_OUTPUT
