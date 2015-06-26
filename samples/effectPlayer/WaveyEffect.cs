@@ -14,7 +14,7 @@ namespace CoglGst
 			"coords += sin (coords * PI * 2.0 * 8.0) / 30.0;\n" +
 			"cogl_color_out *= cogl_gst_sample_video0 (coords);\n";
 
-		Context context;
+		Cogl.Context context;
 		VideoSink sink;
 
 		Cogl.Pipeline basePipeline;
@@ -22,7 +22,7 @@ namespace CoglGst
 
 		Borders borders;
 
-		public void Init (Context context, VideoSink sink)
+		public void Init (Cogl.Context context, VideoSink sink)
 		{
 			this.context = context;
 			this.sink = sink;

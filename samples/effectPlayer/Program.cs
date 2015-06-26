@@ -10,7 +10,7 @@ namespace CoglGst
 {
 	class MainClass
 	{
-		static Context context;
+		static Cogl.Context context;
 		static Framebuffer fb;
 		static VideoSink sink;
 		static Element playbin;
@@ -141,7 +141,7 @@ namespace CoglGst
 				effect.SetUpPipeline (sink);
 		}
 
-		public static Context CreateContext ()
+		public static Cogl.Context CreateContext ()
 		{
 			Renderer renderer;
 			Display display;
@@ -150,7 +150,7 @@ namespace CoglGst
 
 			display = new Display (renderer, null);
 
-			return new Context (display);
+			return new Cogl.Context (display);
 		}
 
 		public static Cogl.Onscreen CreateOnscreen ()

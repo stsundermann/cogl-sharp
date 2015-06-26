@@ -8,7 +8,7 @@ namespace CoglGst
 {
 	public class EdgeEffect : IEffect
 	{
-		Context context;
+		Cogl.Context context;
 		VideoSink sink;
 		Borders borders;
 

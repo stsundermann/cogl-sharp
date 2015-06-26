@@ -4,9 +4,12 @@ METADATA = $(ASSEMBLY_NAME).metadata
 DLL = $(top_srcdir)/out/$(ASSEMBLY_NAME).dll
 DLLMAP = $(top_srcdir)/out/$(ASSEMBLY_NAME).dll.config
 GLUEDIR = $(srcdir)/glue
+COGL_GAPI_PARAMS = --generate $(srcdir)/$(API)
+
 if COGLGSTREAMER
-	COGLGST_GAPI_PARAMS = --generate $(coglgst_api)
+COGL_GAPI_PARAMS += --generate $(coglgst_api)
 endif
+
 
 gapidir = $(GAPIDIR)
 gapi_DATA = $(API) $(coglgst_api)
@@ -45,7 +48,7 @@ $(coglgst_api): $(srcdir)/$(coglgst_api_raw) $(srcdir)/$(coglgst_metadata)
 
 generated-stamp: $(API) $(coglgst_api)
 	rm -rf generated/* && \
-	$(GAPI_CODEGEN) --generate $(srcdir)/$(API) $(COGLGST_GAPI_PARAMS) $(GTK_SHARP_CFLAGS) $(GSTREAMERSHARP_CFLAGS) \
+	$(GAPI_CODEGEN) $(COGL_GAPI_PARAMS) $(GTK_SHARP_CFLAGS) $(GSTREAMERSHARP_CFLAGS) \
 		--outdir=generated \
 		--glue-filename=$(GLUEDIR)/generated.c --gluelib-name=libcoglsharpglue-1.18.0.so \
 		--glue-includes=cogl/cogl.h,cogl-pango/cogl-pango.h, --gapidir=$(gapidir) \

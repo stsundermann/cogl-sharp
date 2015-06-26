@@ -167,6 +167,7 @@ dnl Check for gstreamer-sharp
 	PKG_CHECK_MODULES(GSTREAMERSHARP, gstreamer-sharp-1.0 >= 0.99.0)
 	AC_SUBST(GSTREAMERSHARP_LIBS)
 	AC_SUBST(GSTREAMERSHARP_CFLAGS)]
+	AC_SUBST(GSTREAMERSHARP)
 )
 AM_CONDITIONAL(COGLGSTREAMER, test "x$enable_cogl_gst" = "xyes")
 
@@ -191,8 +192,8 @@ AC_CONFIG_FILES([
 	sources/AssemblyInfo.cs
 	cogl-sharp-1.0.pc
 	doc/Makefile
-    samples/Makefile
-    samples/effectPlayer/Makefile
+	samples/Makefile
+	samples/effectPlayer/Makefile
 ])
 AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
 AC_OUTPUT

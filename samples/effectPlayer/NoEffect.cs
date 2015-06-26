@@ -8,11 +8,11 @@ namespace CoglGst
 {
 	public class NoEffect : IEffect
 	{
-		Context context;
+		Cogl.Context context;
 		VideoSink sink;
 		Borders borders;
 
-		public void Init (Context context, VideoSink sink)
+		public void Init (Cogl.Context context, VideoSink sink)
 		{
 			this.context = context;
 			this.sink = sink;

@@ -8,7 +8,7 @@ namespace CoglGst
 {
 	public interface IEffect
 	{
-		void Init (Context context, VideoSink sink);
+		void Init (Cogl.Context context, VideoSink sink);
 		void SetUpPipeline (VideoSink sink);
 		void Paint (Framebuffer fb, Rectangle videoOutput);
 	}

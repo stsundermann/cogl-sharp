@@ -8,7 +8,7 @@ namespace CoglGst
 {
 	public class SquareEffect : IEffect
 	{
-		Context context;
+		Cogl.Context context;
 		VideoSink sink;
 		Cogl.Pipeline pipeline;
 		Borders borders;
@@ -22,7 +22,7 @@ namespace CoglGst
 			"vec2 coords = (square_num + in_square) / N_SQUARES;\n" +
 			"cogl_color_out *= cogl_gst_sample_video0 (coords);\n";
 
-		public void Init (Context context, VideoSink sink)
+		public void Init (Cogl.Context context, VideoSink sink)
 		{
 			this.context = context;
 			this.sink = sink;

@@ -93,7 +93,7 @@ namespace CoglBasicVideoPlayer
 			sink.NewFrame += NewFrameCb;
 		}
 
-		static bool MakePipelineForUri (Context ctx, Uri uri, out Element pipeline, out VideoSink sink)
+		static bool MakePipelineForUri (Cogl.Context ctx, Uri uri, out Element pipeline, out VideoSink sink)
 		{
 			Element bin;
 
@@ -131,14 +131,14 @@ namespace CoglBasicVideoPlayer
 
 		public static void Main (string[] args)
 		{
-			Context ctx;
+			Cogl.Context ctx;
 			Onscreen onscreen;
 			Element pipeline;
 			Source coglSource;
 			Gst.Bus bus;
 			Uri uri;
 
-			ctx = new Context (null);
+			ctx = new Cogl.Context (null);
 
 			onscreen = new Onscreen (ctx, 800, 600);
 			onscreen.Resizable = true;
