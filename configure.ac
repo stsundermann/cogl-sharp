@@ -164,7 +164,7 @@ dnl Check for Cogl-Gst
 	AC_SUBST(coglgst_metadata)
 
 dnl Check for gstreamer-sharp
-	PKG_CHECK_MODULES(GSTREAMERSHARP, gstreamer-sharp-1.0 >= 0.99.0)
+	PKG_CHECK_MODULES(GSTREAMERSHARP, gstreamer-sharp-1.0 >= 1.39.1)
 	AC_SUBST(GSTREAMERSHARP_LIBS)
 	AC_SUBST(GSTREAMERSHARP_CFLAGS)]
 	AC_SUBST(GSTREAMERSHARP)
